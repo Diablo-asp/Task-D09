@@ -6,14 +6,14 @@ create schema cema
 go
 
 create table cema.actor(
-	act_Id int primary key,
+	act_Id int primary key identity,
 	act_Fname varchar(20),
 	act_Lname varchar(20),
 	act_Gender varchar(1)
 )
 
 create table cema.Movie(
-	mov_Id int primary key,
+	mov_Id int primary key identity,
 	mov_title varchar(50),
 	mov_year int,
 	mov_time int,
@@ -23,7 +23,7 @@ create table cema.Movie(
 )
 
 create table cema.dirctor(
-	dir_Id int primary key,
+	dir_Id int primary key identity,
 	dir_Fname varchar(20),
 	dir_Lname varchar(20)
 )
@@ -36,6 +36,7 @@ create table Relations.movie_cast(
 	mov_Id int REFERENCES cema.Movie (mov_Id),
 	role varchar(30),
 	primary key (act_Id,mov_Id)
+	
 )
 
 create table Relations.movie_direction(
@@ -46,7 +47,7 @@ create table Relations.movie_direction(
 )
 
 create table cema.reviewer(
-	rev_Id int primary key,
+	rev_Id int primary key identity,
 	rev_name varchar(30)
 )
 
@@ -60,7 +61,7 @@ create table Relations.rating(
 )
 
 create table cema.genres(
-	gen_Id int primary key,
+	gen_Id int primary key identity,
 	gen_title varchar(20)
 )
 
